@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 19:27:13 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/18 19:11:36 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/23 12:29:12 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,8 @@ void				put_top_b(t_data *data, int index_val);
 void				free_data_node(t_node **head);
 void				free_data(t_data *data);
 void				free_stack(t_data *data, char *message);
+
+int find_index_a(int value, t_data *data);
+int find_index_b(int value, t_data *data);
 
 #endif

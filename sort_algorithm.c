@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:39:21 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/20 22:41:24 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/23 14:45:07 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ void	sort_algorithm(t_data *data)
 	sort_five(data);
 	while (data->b_size > 0)
 	{
-		print_data_a_front(data);
-		print_data_b_front(data);
+		// print_data_a_front(data);
+		// print_data_b_front(data);
 		cheapest_cost(data);
 		//ft_printf("Final best: %d\n", data->best_node);
 		//ft_printf("Final Bff: %d\n", data->best_bestfriend);
-		ft_printf("Chepeast cost: %d\n", data->best_cost);
+		
 		move_to_a(data);
 	}
 	rotate_to_min(data);
@@ -98,24 +98,146 @@ void	cheapest_cost(t_data *data)
 }
 void	move_to_a(t_data *data)
 {
-	int	cost_head_a;
-	int	cost_tail_a;
-	int	cost_head_b;
-	int	cost_tail_b;
+	int idx_bff = find_index_a(data->best_bestfriend, data);
+	int idx_best = find_index_b(data->best_node, data);
+	// ft_printf("Chepeast cost: %d\n", data->best_cost);
+	// ft_printf("Final Bff: %d\n", data->best_bestfriend);
+	// ft_printf("Index A: %d\n", idx_bff);
+	// ft_printf("Final best: %d\n", data->best_node);
+	// ft_printf("Index B: %d\n", idx_best);
+	
+	while (data->a_head->value != data->best_bestfriend
+		&& data->b_head->value != data->best_node)
+	{
+		if(idx_best <= data->b_size / 2 && idx_best <= data->b_size / 2)
+			rr_operation(data, 'c');
+		else if (idx_best > data->b_size / 2 && idx_best > data->b_size / 2)
+			reverse_rr_operation(data,'c');
+	} 
+	
+	while(data->a_head->value != data->best_bestfriend)
+	{
+		if(idx_bff <= data->a_size / 2)
+			ra_operation(data, 'a');
+		else
+			reverse_ra_operation(data, 'a');		
+	}
+	while(data->b_head->value != data->best_node)
+	{
+		if(idx_best <= data->b_size / 2)
+			rb_operation(data, 'b');
+		else
+			reverse_rb_operation(data, 'b');		
+	}
+	pa_operation(data, 'a');
+}
 
-	cost_head_a = calc_from_head_a(data);
-	cost_tail_a = calc_from_tail_a(data) - 1;
-	cost_head_b = calc_from_head_b(data);
-	cost_tail_b = calc_from_tail_b(data) - 1 ;
+int find_index_a(int value, t_data *data)
+{
+    int i;
+    t_node  *temp;
+    
+    i = 0;
+    temp = data->a_head;
+    while(temp)
+    {
+        if(temp->value == value)
+            return(i);
+        i++;
+        temp= temp->next;
+    }
+    return(-1);
+}
+int find_index_b(int value, t_data *data)
+{
+    int i;
+    t_node  *temp;
+    
+    i = 0;
+    temp = data->b_head;
+    while(temp)
+    {
+		
+        if(temp->value == value)
+            return(i);
+        i++;
+        temp= temp->next;
+    }
+    return(ft_printf("Deu ......\n"), -1);
+}
+	// int	cost_head_a;
+	// int	cost_tail_a;
+	// int	cost_head_b;
+	// int	cost_tail_b;
+
+	// cost_head_a = calc_from_head_a(data);
+	// cost_tail_a = calc_from_tail_a(data);
+	// cost_head_b = calc_from_head_b(data);
+	// cost_tail_b = calc_from_tail_b(data);
 	
-	ft_printf("Final best: %d\n", data->best_node);
-	ft_printf("Final Bff: %d\n", data->best_bestfriend);
-	ft_printf("Head A:%d\n", cost_head_a);
-	ft_printf("Tail A:%d\n", cost_tail_a);
-	ft_printf("Head B:%d\n", cost_head_b);
-	ft_printf("Tail B:%d\n", cost_tail_b);
+	// ft_printf("Chepeast cost: %d\n", data->best_cost);
+	// ft_printf("Final best: %d\n", data->best_node);
+	// ft_printf("Final Bff: %d\n", data->best_bestfriend);
+	// ft_printf("Head A  inicio :%d\n", cost_head_a);
+	// ft_printf("Tail A inicio:%d\n", cost_tail_a);
+	// ft_printf("Head B inicio :%d\n", cost_head_b);
+	// ft_printf("Tail B inicio:%d\n", cost_tail_b);
+
+	// if(cost_head_a == 0)
+	// if(cost_tail_a  > cost_head_a && cost_tail_a  > 0 && cost_head_a > 0)
+	// {
+	// 	while(cost_head_a >= 0)
+	// 	{
+	// 		ft_printf("Head A:%d\n", cost_head_a);
+	// 		ft_printf("Tail A:%d\n", cost_tail_a);
+	// 		//ft_printf("Head B:%d\n", cost_head_b);
+	// 		//ft_printf("Tail B:%d\n", cost_tail_b);
+	// 		ra_operation(data, 'a');
+	// 		cost_head_a--;
+	// 		//ft_printf("Head A:%d\n", cost_head_a);
+	// 		//ft_printf("Tail A:%d\n", cost_tail_a);
+		
+	// 	}
+	// }
+	// if(cost_tail_a <= cost_head_a && cost_head_a > 0 && cost_tail_a - 1 > 0)
+	// {
+	// 	while(cost_tail_a  - 1 >= 0)
+	// 	{
+	// 		ft_printf("Head A:%d\n", cost_head_a);
+	// 		ft_printf("Tail A:%d\n", cost_tail_a);
+	// 		//ft_printf("Head B:%d\n", cost_head_b);
+	// 		//ft_printf("Tail B:%d\n", cost_tail_b);
+	// 		reverse_ra_operation(data, 'a');
+	// 		cost_tail_a--;
+	// 	}
+	// 	//reverse_ra_operation(data, 'a');
+	// }
+	// 	if(cost_tail_b > cost_head_a && cost_tail_b - 1> 0 && cost_head_b > 0)
+	// {
+	// 	while(cost_head_b >= 0)
+	// 	{
+	// 		ft_printf("Head B:%d\n", cost_head_b);
+	// 		ft_printf("Tail B:%d\n", cost_tail_b);
+	// 		rb_operation(data, 'b');
+	// 		cost_head_b--;
+	// 		//ft_printf("Head A:%d\n", cost_head_a);
+	// 		//ft_printf("Tail A:%d\n", cost_tail_a);
+		
+	// 	}
+	// }
+	// if(cost_tail_b <= cost_head_b && cost_head_b > 0 && cost_tail_b - 1 > 0)
+	// {
+	// 	while(cost_tail_b >= 0)
+	// 	{
+	// 		ft_printf("Head B:%d\n", cost_head_b);
+	// 		ft_printf("Tail B:%d\n", cost_tail_b);
+	// 		reverse_rb_operation(data, 'b');
+	// 		cost_tail_b--;
+	// 	}
+	// 	//reverse_rb_operation(data, 'b');
+	// }
 	
-pa_operation(data, 'a');}
+
 // if (calc_from_head_a(data) <= calc_from_tail_a(data)
 // 	&& calc_from_head_b(data) <= calc_from_tail_b(data))
 // {

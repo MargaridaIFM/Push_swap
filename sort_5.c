@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 12:32:22 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/19 13:08:04 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/23 12:23:58 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int get_index(int max_val, t_data *data)
         i++;
         temp= temp->next;
     }
-    return(-1);
+    return(ft_printf("Deu ......\n"), -1);
 }
 int get_max_val(t_data *data)
 {
