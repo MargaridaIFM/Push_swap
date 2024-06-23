@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 19:27:13 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/23 17:46:15 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/23 21:25:47 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,29 +78,28 @@ void				sorting(t_data *data, int a_size);
 void				sort_two(t_data *data);
 void				sort_three(t_data *data);
 void				sort_four(t_data *data);
-//--------------- sort 5 -----------------//
+//------------------------ sort 5 --------------------------//
 void				sort_five(t_data *data);
 int					get_index(int max_val, t_data *data);
 int					get_max_val(t_data *data);
 int					get_min_val(t_data *data);
 void				put_top_a(t_data *data, int index_val);
-//----------- sort algorithm -------------//
+//-------------------- sort algorithm ---------------------//
 void				sort_algorithm(t_data *data);
 int					find_average(t_data *data);
 void				cheapest_cost(t_data *data);
 void				move_to_a(t_data *data);
 void				rotate_to_min(t_data *data);
-//-------- aux functions algorithm 1 ---------//
+//---------------------- sort aux 1 ----------------------//
 void				find_bestfriend(t_data *data);
 int					final_cost(t_data *data);
 int					calc_from_head_a(t_data *data);
 int					calc_from_tail_a(t_data *data);
 int					calc_from_head_b(t_data *data);
-//-------- aux functions algorithm 2 ---------//
+//---------------------- sort  aux 2 ----------------------//
 int					calc_from_tail_b(t_data *data);
 int					find_index_a(int value, t_data *data);
 int					find_index_b(int value, t_data *data);
-
 
 // Test Print functions - put on the libft at the end
 void				print_data_a_front(t_data *data);

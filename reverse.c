@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 18:18:59 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/12 08:26:10 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/23 21:32:14 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	reverse_rb_operation(t_data *data, char c)
 	if (c == 'b')
 		ft_printf("rrb\n");
 }
+
 void	reverse_rr_operation(t_data *data, char c)
 {
 	reverse_ra_operation(data, c);

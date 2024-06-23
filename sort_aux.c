@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_algorithm_aux.c                               :+:      :+:    :+:   */
+/*   sort_aux.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 17:38:11 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/23 17:43:01 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/23 22:07:35 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	find_bestfriend(t_data *data)
 		bestfriend = get_min_val(data);
 	data->bestfriend = bestfriend;
 }
+
 int	final_cost(t_data *data)
 {
 	int	final_cost;
@@ -48,6 +49,7 @@ int	final_cost(t_data *data)
 	final_cost = cost_a + cost_b;
 	return (final_cost);
 }
+
 int	calc_from_head_a(t_data *data)
 {
 	t_node	*temp_a;
@@ -62,6 +64,7 @@ int	calc_from_head_a(t_data *data)
 	}
 	return (counter);
 }
+
 int	calc_from_tail_a(t_data *data)
 {
 	t_node	*temp_a;
@@ -76,6 +79,7 @@ int	calc_from_tail_a(t_data *data)
 	}
 	return (counter + 1);
 }
+
 int	calc_from_head_b(t_data *data)
 {
 	t_node	*temp_b;

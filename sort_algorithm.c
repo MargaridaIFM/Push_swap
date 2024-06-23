@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:39:21 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/23 17:44:13 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/23 22:06:51 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	sort_algorithm(t_data *data)
 	}
 	rotate_to_min(data);
 }
+
 int	find_average(t_data *data)
 {
 	int		res;
@@ -49,6 +50,7 @@ int	find_average(t_data *data)
 	res /= data->a_size;
 	return (res);
 }
+
 void	cheapest_cost(t_data *data)
 {
 	t_node	*temp_b;
@@ -73,35 +75,38 @@ void	cheapest_cost(t_data *data)
 	}
 	data->best_cost = cost_min;
 }
+
 void	move_to_a(t_data *data)
 {
-	int idx_bff = find_index_a(data->best_bestfriend, data);
-	int idx_best = find_index_b(data->best_node, data);
+	int	idx_bff;
+	int	idx_best;
+
+	idx_bff = find_index_a(data->best_bestfriend, data);
+	idx_best = find_index_b(data->best_node, data);
 	while (data->a_head->value != data->best_bestfriend
 		&& data->b_head->value != data->best_node)
 	{
-		if(idx_best <= data->b_size / 2 && idx_best <= data->b_size / 2)
+		if (idx_best <= data->b_size / 2 && idx_best <= data->b_size / 2)
 			rr_operation(data, 'c');
 		else if (idx_best > data->b_size / 2 && idx_best > data->b_size / 2)
-			reverse_rr_operation(data,'c');
-	} 
-	while(data->a_head->value != data->best_bestfriend)
+			reverse_rr_operation(data, 'c');
+	}
+	while (data->a_head->value != data->best_bestfriend)
 	{
-		if(idx_bff <= data->a_size / 2)
+		if (idx_bff <= data->a_size / 2)
 			ra_operation(data, 'a');
 		else
-			reverse_ra_operation(data, 'a');		
+			reverse_ra_operation(data, 'a');
 	}
-	while(data->b_head->value != data->best_node)
+	while (data->b_head->value != data->best_node)
 	{
-		if(idx_best <= data->b_size / 2)
+		if (idx_best <= data->b_size / 2)
 			rb_operation(data, 'b');
 		else
-			reverse_rb_operation(data, 'b');		
+			reverse_rb_operation(data, 'b');
 	}
 	pa_operation(data, 'a');
 }
-
 
 void	rotate_to_min(t_data *data)
 {
@@ -126,6 +131,7 @@ void	rotate_to_min(t_data *data)
 		while (data->a_head->value != smallest)
 			reverse_ra_operation(data, 'a');
 }
+
 /*
 	[x] sort bigger than 5
 		[x] Transfer nbr to stack B until only have 5 nbr in stack A

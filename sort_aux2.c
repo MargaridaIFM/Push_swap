@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_algoritm_aux2.c                               :+:      :+:    :+:   */
+/*   sort_aux2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 17:43:07 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/23 17:44:17 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/23 22:08:20 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,37 +26,37 @@ int	calc_from_tail_b(t_data *data)
 	}
 	return (counter + 1);
 }
-int find_index_a(int value, t_data *data)
+
+int	find_index_a(int value, t_data *data)
 {
-    int i;
-    t_node  *temp;
-    
-    i = 0;
-    temp = data->a_head;
-    while(temp)
-    {
-        if(temp->value == value)
-            return(i);
-        i++;
-        temp= temp->next;
-    }
-    return(-1);
+	int		i;
+	t_node	*temp;
+
+	i = 0;
+	temp = data->a_head;
+	while (temp)
+	{
+		if (temp->value == value)
+			return (i);
+		i++;
+		temp = temp->next;
+	}
+	return (-1);
 }
 
-int find_index_b(int value, t_data *data)
+int	find_index_b(int value, t_data *data)
 {
-    int i;
-    t_node  *temp;
-    
-    i = 0;
-    temp = data->b_head;
-    while(temp)
-    {
-		
-        if(temp->value == value)
-            return(i);
-        i++;
-        temp= temp->next;
-    }
-    return(ft_printf("Deu ......\n"), -1);
+	int		i;
+	t_node	*temp;
+
+	i = 0;
+	temp = data->b_head;
+	while (temp)
+	{
+		if (temp->value == value)
+			return (i);
+		i++;
+		temp = temp->next;
+	}
+	return (ft_printf("Deu ......\n"), -1);
 }
