@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:39:21 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/20 19:10:45 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/20 22:41:24 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	sort_algorithm(t_data *data)
 		print_data_a_front(data);
 		print_data_b_front(data);
 		cheapest_cost(data);
-		ft_printf("Final best: %d\n", data->best_node);
-		ft_printf("Final Bff: %d\n", data->best_bestfriend);
+		//ft_printf("Final best: %d\n", data->best_node);
+		//ft_printf("Final Bff: %d\n", data->best_bestfriend);
 		ft_printf("Chepeast cost: %d\n", data->best_cost);
 		move_to_a(data);
 	}
@@ -83,7 +83,6 @@ void	cheapest_cost(t_data *data)
 	temp_b = data->b_head;
 	while (temp_b)
 	{
-		
 		data->b_friend = temp_b->value;
 		find_bestfriend(data);
 		cost = final_cost(data);
@@ -99,43 +98,60 @@ void	cheapest_cost(t_data *data)
 }
 void	move_to_a(t_data *data)
 {
+	int	cost_head_a;
+	int	cost_tail_a;
+	int	cost_head_b;
+	int	cost_tail_b;
+
+	cost_head_a = calc_from_head_a(data);
+	cost_tail_a = calc_from_tail_a(data) - 1;
+	cost_head_b = calc_from_head_b(data);
+	cost_tail_b = calc_from_tail_b(data) - 1 ;
 	
-	// if (calc_from_head_a(data) <= calc_from_tail_a(data)
-	// 	&& calc_from_head_b(data) <= calc_from_tail_b(data))
-	// {
-	// 	while (calc_from_head_a(data) > 0
-	// 		&& calc_from_head_b(data) > 0)
-	// 		rr_operation(data, 'c');
-	// }
-	// else if (calc_from_tail_a(data) < calc_from_head_a(data)
-	// 	&& calc_from_tail_b(data) < calc_from_head_b(data))
-	// {
-	// 	while (calc_from_tail_a(data) > 0
-	// 		&& calc_from_tail_b(data) > 0)
-	// 		reverse_rr_operation(data, 'c');
-	// }
-	if(calc_from_head_a(data) <= calc_from_tail_a(data))
-		{
-			while(data->a_head->value != data->best_bestfriend)
-				ra_operation(data, 'a');
-		}
-	else if(calc_from_head_a(data) > calc_from_tail_a(data))
-		{
-			while(data->a_head->value != data->best_bestfriend)
-				reverse_ra_operation(data, 'a');
-		}
-	if(calc_from_head_b(data) < calc_from_tail_b(data))
-	{
-		while(data->b_head->value != data->best_node)
-			rb_operation(data, 'b');
-	}			
-else if(calc_from_head_b(data) >= calc_from_tail_b(data))
-	{
-		while(data->b_head->value != data->best_node)				
-			reverse_rb_operation(data, 'b');
-	}	
-	pa_operation(data, 'a');
-}
+	ft_printf("Final best: %d\n", data->best_node);
+	ft_printf("Final Bff: %d\n", data->best_bestfriend);
+	ft_printf("Head A:%d\n", cost_head_a);
+	ft_printf("Tail A:%d\n", cost_tail_a);
+	ft_printf("Head B:%d\n", cost_head_b);
+	ft_printf("Tail B:%d\n", cost_tail_b);
+	
+pa_operation(data, 'a');}
+// if (calc_from_head_a(data) <= calc_from_tail_a(data)
+// 	&& calc_from_head_b(data) <= calc_from_tail_b(data))
+// {
+// 	while (calc_from_head_a(data) > 0
+// 		&& calc_from_head_b(data) > 0)
+// 		rr_operation(data, 'c');
+// }
+// else if (calc_from_tail_a(data) < calc_from_head_a(data)
+// 	&& calc_from_tail_b(data) < calc_from_head_b(data))
+// {
+// 	while (calc_from_tail_a(data) > 0
+// 		&& calc_from_tail_b(data) > 0)
+// 		reverse_rr_operation(data, 'c');
+// }
+// 	if (calc_from_head_a(data) <= calc_from_tail_a(data))
+// 	{
+// 		while (data->a_head->value != data->best_bestfriend)
+// 			ra_operation(data, 'a');
+// 	}
+// 	else if (calc_from_head_a(data) > calc_from_tail_a(data))
+// 	{
+// 		while (data->a_head->value != data->best_bestfriend)
+// 			reverse_ra_operation(data, 'a');
+// 	}
+// 	if (calc_from_head_b(data) < calc_from_tail_b(data))
+// 	{
+// 		while (data->b_head->value != data->best_node)
+// 			rb_operation(data, 'b');
+// 	}
+// 	else if (calc_from_head_b(data) >= calc_from_tail_b(data))
+// 	{
+// 		while (data->b_head->value != data->best_node)
+// 			reverse_rb_operation(data, 'b');
+// 	}
+// 	pa_operation(data, 'a');
+//
 int	final_cost(t_data *data)
 {
 	int	final_cost;
@@ -165,7 +181,6 @@ int	final_cost(t_data *data)
 		// ft_printf("Tail B: %d\n", cost_b);
 	}
 	final_cost = cost_a + cost_b;
-	ft_printf("Final Cost: %d\n", final_cost);
 	return (final_cost);
 }
 int	calc_from_head_a(t_data *data)
@@ -191,7 +206,6 @@ int	calc_from_tail_a(t_data *data)
 	temp_a = data->a_tail;
 	while (temp_a && temp_a->value != data->bestfriend)
 	{
-		
 		temp_a = temp_a->prev;
 		counter++;
 	}
@@ -231,6 +245,7 @@ void	rotate_to_min(t_data *data)
 	int		smallest;
 	int		idx;
 
+	ft_printf("Entrou no rotate to min\n");
 	idx = 0;
 	temp_a = data->a_head;
 	smallest = get_min_val(data);
