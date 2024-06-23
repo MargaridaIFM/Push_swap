@@ -6,12 +6,29 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 12:32:22 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/23 12:23:58 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/23 17:29:13 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 // ver funcao find_index e manter so a outra, esta e usado no sort five;
+
+void	sort_five(t_data *data)
+{
+    int idx_val_max;
+    int idx_val_min;
+    
+    idx_val_max = get_index(get_max_val(data), data);
+    put_top_a(data, idx_val_max);
+    pb_operation(data,'b');
+    idx_val_min = get_index(get_min_val(data), data);
+    put_top_a(data, idx_val_min);
+    pb_operation(data,'b');
+    sort_three(data);
+    pa_operation(data,'a');
+    pa_operation(data,'a');
+    ra_operation(data, 'a');
+}
 int get_index(int max_val, t_data *data)
 {
     int i;
@@ -85,64 +102,4 @@ void put_top_a(t_data *data, int index_val)
         reverse_ra_operation(data, 'a');
     }
     
-}
-void put_top_b(t_data *data, int index_val)
-{
-    if(index_val <= (data->b_size / 2))
-    {
-        while(index_val > 0)
-        {
-            rb_operation(data, 'b');
-            index_val--;
-        }
-    }
-    else
-    {
-        while(index_val < (data->b_size -1))
-        {
-            reverse_rb_operation(data, 'b');
-            index_val++;
-        }
-        reverse_rb_operation(data, 'b');
-    }
-    
-}
-void put_top_a_b(t_data *data, int index_b, int index_bff)
-{
-    if(index_b <= (data->a_size / 2) && index_bff <= (data->a_size / 2))
-    {
-        while(index_b > 0  && index_bff > 0 )
-        {
-            rr_operation(data, 'c');
-            index_b--;
-            index_bff--;
-        }
-    }
-    else if(index_b >= (data->a_size / 2) && index_bff >= (data->a_size / 2))
-    {
-        while(index_b< (data->b_size -1) && index_bff < (data->a_size -1 )  )
-        {
-            reverse_rr_operation(data, 'c');
-            index_b++;
-            index_bff++;
-        }
-        reverse_rr_operation(data, 'c');
-    }
-     
-}
-void	sort_five(t_data *data)
-{
-    int idx_val_max;
-    int idx_val_min;
-    
-    idx_val_max = get_index(get_max_val(data), data);
-    put_top_a(data, idx_val_max);
-    pb_operation(data,'b');
-    idx_val_min = get_index(get_min_val(data), data);
-    put_top_a(data, idx_val_min);
-    pb_operation(data,'b');
-    sort_three(data);
-    pa_operation(data,'a');
-    pa_operation(data,'a');
-    ra_operation(data, 'a');
 }

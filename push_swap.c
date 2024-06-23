@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 10:33:41 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/19 12:40:47 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/23 17:25:16 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,10 @@ int main(int argc, char **argv)
     ft_parsing(argv, &data);
     data.a_size = argc - 1;
     if(check_is_sorted(&data) == 0)
-        free_exit(&data, "");// confirmar se vai p o fd 1 ou 2
+        free_exit(&data, ""); // confirmar se vai p o fd 1
     sorting(&data, data.a_size);
-    print_data_a_front(&data);
-    print_data_a_back(&data);
-    //print_data_b_front(&data);
-	//print_data_b_back(&data);
     if(check_is_sorted(&data) == 0)
-        free_exit(&data, "is sorted\n");
-
-    //free_exit(&data, "Finish\n"); // refazer
+        free_exit(&data, "is sorted\n"); // tirar mensagem e confirmar se vai p o 1
     return(0);
 }
 

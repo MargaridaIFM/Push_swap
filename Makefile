@@ -6,20 +6,21 @@ LIBFT = $(LIBFTDIR)/libft.a
 LIBFTDIR =./libft
 RM = rm -f
 
-SRCS = push_swap.c \
+SRCS = 	push_swap.c \
 		aux_functions.c \
 		check_input.c \
 		parsing.c \
-		test_list_functions.c \
 		add_arguments.c \
 		swap.c \
 		rotate.c \
 		reverse.c \
-		free_stack.c \
 		push.c \
 		sorting.c \
 		sort_5.c \
 		sort_algorithm.c \
+		sort_aux.c \
+		sort_aux2.c \
+		test_list_functions.c \
 
 OBJDIR = ./objs
 OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))

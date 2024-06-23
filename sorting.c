@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:39:17 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/14 06:01:35 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/23 17:25:42 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	sorting(t_data *data, int a_size)
 	else
 	   sort_algorithm(data);
 }
-// poderia usar a check is sorted p verificar e depois fazer o swap
 void	sort_two(t_data *data)
 {
 	t_node	*temp;

@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 19:27:13 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/23 12:29:12 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/23 17:46:15 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,24 +42,22 @@ typedef struct s_data
 	int				best_node;
 }					t_data;
 
-// Auxiliar funcitons - Organize
+// Auxiliar funcitons
 void				null_initialization_s_data(t_data *data);
 void				free_exit(t_data *data, char *str);
 void				free_node(t_node *node);
 
-// Test Print functions - put on the libft at the end
-void				print_data_a_front(t_data *data);
-void				print_data_b_front(t_data *data);
-void				print_data_a_back(t_data *data);
-void				print_data_b_back(t_data *data);
-
 // Parsing - Organize
 void				ft_parsing(char *argv[], t_data *data);
+
+// Check input
 void				check_input(char *argv, t_data *data);
 int					limit_value(char *str, int sign);
+void				check_doubles(t_data *data);
+
+// Add Arguments
 void				add_arg_a(int nb, t_data *data);
 void				add_to_tail_a(t_data *data, t_node *new);
-void				check_doubles(t_data *data);
 
 // operations
 void				sa_operation(t_data *data, char c);
@@ -81,35 +79,33 @@ void				sort_two(t_data *data);
 void				sort_three(t_data *data);
 void				sort_four(t_data *data);
 //--------------- sort 5 -----------------//
-int					get_index(int max_val, t_data *data);
-int					get_min_val(t_data *data);
-int					get_max_val(t_data *data);
-void				put_top_a(t_data *data, int index_val);
 void				sort_five(t_data *data);
-//------------- more than 5 ---------------//
+int					get_index(int max_val, t_data *data);
+int					get_max_val(t_data *data);
+int					get_min_val(t_data *data);
+void				put_top_a(t_data *data, int index_val);
+//----------- sort algorithm -------------//
 void				sort_algorithm(t_data *data);
 int					find_average(t_data *data);
-void find_bestfriend(t_data *data);
-void cheapest_cost(t_data *data);
-int final_cost(t_data *data);
-int calc_from_head_a(t_data *data);
-int calc_from_tail_a(t_data *data);
-int calc_from_head_b(t_data *data);
-int calc_from_tail_b(t_data *data);
-void move_to_a(t_data *data);
-void rotate_to_min(t_data *data);
+void				cheapest_cost(t_data *data);
+void				move_to_a(t_data *data);
+void				rotate_to_min(t_data *data);
+//-------- aux functions algorithm 1 ---------//
+void				find_bestfriend(t_data *data);
+int					final_cost(t_data *data);
+int					calc_from_head_a(t_data *data);
+int					calc_from_tail_a(t_data *data);
+int					calc_from_head_b(t_data *data);
+//-------- aux functions algorithm 2 ---------//
+int					calc_from_tail_b(t_data *data);
+int					find_index_a(int value, t_data *data);
+int					find_index_b(int value, t_data *data);
 
 
-
-void				put_top_b(t_data *data, int index_val);
-
-
-// free teste -- depois tirar ?
-void				free_data_node(t_node **head);
-void				free_data(t_data *data);
-void				free_stack(t_data *data, char *message);
-
-int find_index_a(int value, t_data *data);
-int find_index_b(int value, t_data *data);
+// Test Print functions - put on the libft at the end
+void				print_data_a_front(t_data *data);
+void				print_data_b_front(t_data *data);
+void				print_data_a_back(t_data *data);
+void				print_data_b_back(t_data *data);
 
 #endif
