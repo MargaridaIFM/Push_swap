@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 15:09:42 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/24 12:18:29 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:48:39 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,10 @@ void	check_input(char *argv, t_data *data)
 	str = argv;
 	sign = 0;
 	if (!*str)
-	{
 		free_exit(data, "Error\n");
-	}
 	if (str[0] == '-' || str[0] == '+')
 	{
-		if(!str[1])
+		if (!str[1])
 			free_exit(data, "Error\n");
 		if (str[0] == '-')
 			sign = -1;

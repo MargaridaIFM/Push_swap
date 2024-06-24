@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:39:21 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/24 11:34:33 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:44:45 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,14 @@ void	sort_algorithm(t_data *data)
 }
 
 int	find_average(t_data *data)
-{	
-	if (!data || !data->a_head)
-		return (-1);
+{
 	int		res;
 	t_node	*temp;
 
+	if (!data || !data->a_head)
+		return (-1);
 	res = 0;
 	temp = data->a_head;
-
 	while (temp)
 	{
 		res += temp->value;
@@ -86,12 +85,7 @@ void	move_to_a(t_data *data)
 	idx_best = find_index_b(data->best_node, data);
 	while (data->a_head->value != data->best_bestfriend
 		&& data->b_head->value != data->best_node)
-	{
-		if (idx_best <= data->b_size / 2 && idx_best <= data->b_size / 2)
-			rr_operation(data, 'c');
-		else if (idx_best > data->b_size / 2 && idx_best > data->b_size / 2)
-			reverse_rr_operation(data, 'c');
-	}
+		move_to_a_aux(data, idx_best);
 	while (data->a_head->value != data->best_bestfriend)
 	{
 		if (idx_bff <= data->a_size / 2)
