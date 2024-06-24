@@ -50,4 +50,7 @@ fclean:	clean
 
 re:	fclean all
 
+x: 
+	 make re && valgrind --leak-check=full ./push_swap 1 34k5 3 66 
+
 .PHONY:		all clean fclean re

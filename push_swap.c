@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 10:33:41 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/23 21:31:44 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/24 11:23:46 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	if (argc <= 2 || (argc > 2 && argv[1][0] == '\0'))
+	if (argc < 2 || (argc > 2 && argv[1][0] == '\0'))
 		return (0);
 	null_initialization_s_data(&data);
 	ft_parsing(argv, &data);
@@ -24,7 +24,6 @@ int	main(int argc, char **argv)
 	if (check_is_sorted(&data) == 0)
 		free_exit(&data, "");
 	sorting(&data, data.a_size);
-	print_data_a_front(&data);
 	if (check_is_sorted(&data) == 0)
 		free_exit(&data, "");
 	return (0);

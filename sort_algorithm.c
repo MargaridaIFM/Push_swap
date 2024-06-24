@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:39:21 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/23 22:06:51 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/24 11:34:33 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,15 @@ void	sort_algorithm(t_data *data)
 }
 
 int	find_average(t_data *data)
-{
+{	
+	if (!data || !data->a_head)
+		return (-1);
 	int		res;
 	t_node	*temp;
 
 	res = 0;
 	temp = data->a_head;
-	if (!data || !data->a_head)
-		return (-1);
+
 	while (temp)
 	{
 		res += temp->value;

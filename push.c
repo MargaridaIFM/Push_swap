@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:59:46 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/23 21:26:15 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/24 11:18:49 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ void	pa_operation(t_data *data, char c)
 		data->b_head->prev = NULL;
 	else
 		data->b_tail = NULL;
-	temp->next = NULL;
-	temp->prev = NULL;
 	if (data->a_head)
 		data->a_head->prev = temp;
 	else
@@ -62,8 +60,6 @@ void	pb_operation(t_data *data, char c)
 		data->a_head->prev = NULL;
 	else
 		data->a_tail = NULL;
-	temp->next = NULL;
-	temp->prev = NULL;
 	if (data->b_head)
 		data->b_head->prev = temp;
 	else
