@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 19:27:13 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/24 14:49:21 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/25 08:59:58 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,11 @@ void				sort_three(t_data *data);
 void				sort_four(t_data *data);
 //------------------------ sort 5 --------------------------//
 void				sort_five(t_data *data);
+void				print_data_a_front(t_data *data);
+void				print_data_b_front(t_data *data);
+void				print_data_a_back(t_data *data);
+void				print_data_b_back(t_data *data);
+
 int					get_index(int max_val, t_data *data);
 int					get_max_val(t_data *data);
 int					get_min_val(t_data *data);
@@ -101,11 +106,5 @@ int					calc_from_tail_b(t_data *data);
 int					find_index_a(int value, t_data *data);
 int					find_index_b(int value, t_data *data);
 void				move_to_a_aux(t_data *data, int idx_best);
-
-// Test Print functions - put on the libft at the end
-void				print_data_a_front(t_data *data);
-void				print_data_b_front(t_data *data);
-void				print_data_a_back(t_data *data);
-void				print_data_b_back(t_data *data);
 
 #endif

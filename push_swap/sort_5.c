@@ -6,13 +6,11 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 12:32:22 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/23 21:43:16 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/25 11:18:25 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// ver funcao find_index e manter so a outra, esta e usado no sort five;
 
 void	sort_five(t_data *data)
 {
@@ -45,7 +43,7 @@ int	get_index(int max_val, t_data *data)
 		i++;
 		temp = temp->next;
 	}
-	return (ft_printf("Deu ......\n"), -1);
+	return (-1);
 }
 
 int	get_max_val(t_data *data)

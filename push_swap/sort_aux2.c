@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 17:43:07 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/24 14:47:25 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/25 11:24:25 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	find_index_b(int value, t_data *data)
 		i++;
 		temp = temp->next;
 	}
-	return (ft_printf("Deu ......\n"), -1);
+	return (-1);
 }
 
 void	move_to_a_aux(t_data *data, int idx_best)

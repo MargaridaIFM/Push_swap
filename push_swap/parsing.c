@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 17:53:14 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/23 21:26:04 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/25 11:20:06 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_parsing(char *argv[], t_data *data)
 	while (argv[++i])
 	{
 		check_input(argv[i], data);
-		add_arg_a(atoi(argv[i]), data);
+		add_arg_a(ft_atoi(argv[i]), data);
 	}
 	check_doubles(data);
 }

@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = cc
-FLAGS = -Wall -Werror -Wextra -g #-fsanitize=address 
+FLAGS = -Wall -Werror -Wextra -g
 LIBC = ar rcs
 LIBFT = $(LIBFTDIR)/libft.a
 LIBFTDIR =./libft
@@ -20,7 +20,6 @@ SRCS = 	push_swap.c \
 		sort_algorithm.c \
 		sort_aux.c \
 		sort_aux2.c \
-		test_list_functions.c \
 
 OBJDIR = ./objs
 OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
@@ -49,8 +48,5 @@ fclean:	clean
 	@$(RM) $(NAME)
 
 re:	fclean all
-
-x: 
-	 make re && valgrind --leak-check=full ./push_swap 1 34k5 3 66 
 
 .PHONY:		all clean fclean re
