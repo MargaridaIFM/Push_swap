@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 18:34:21 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/25 21:10:15 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/26 14:11:59 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ int	main(int argc, char **argv)
 	null_initialization_s_data(&data);
 	ft_parsing(argv, &data);
 	data.a_size = argc - 1;
-	if (check_is_sorted(&data) == 0)
-		free_exit_checker(&data, "OK\n");
 	reading_moves(&data);
 	if (check_is_sorted(&data) == 0 && data.b_head == NULL)
 		free_exit_checker(&data, "OK\n");

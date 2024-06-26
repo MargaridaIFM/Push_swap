@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 15:05:09 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/23 22:09:04 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/26 13:55:00 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	sb_operation(t_data *data, char c)
 		temp_b->next->prev = temp_b;
 	data->b_head->next = temp_b;
 	temp_b->prev = data->b_head;
-	if (c == 'b')
+	if (c == 'b')		ft_printf("sb\n");
 		ft_printf("sb\n");
 }
 

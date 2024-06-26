@@ -6,7 +6,7 @@
 /*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 19:22:27 by mfrancis          #+#    #+#             */
-/*   Updated: 2024/06/25 21:10:29 by mfrancis         ###   ########.fr       */
+/*   Updated: 2024/06/26 13:54:48 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,25 @@ void	reading_moves(t_data *data)
 void	execute_moves(t_data *data, char *operation)
 {
 	if (ft_strncmp(operation, "sa\n", 4) == 0)
-		sa_operation(data, 'a');
+		sa_operation(data, 'd');
 	else if (ft_strncmp(operation, "pa\n", 4) == 0)
-		pa_operation(data, 'a');
+		pa_operation(data, 'd');
 	else if (ft_strncmp(operation, "ra\n", 4) == 0)
-		ra_operation(data, 'a');
+		ra_operation(data, 'd');
 	else if (ft_strncmp(operation, "rra\n", 5) == 0)
-		reverse_ra_operation(data, 'a');
+		reverse_ra_operation(data, 'd');
 	else if (ft_strncmp(operation, "sb\n", 4) == 0)
-		sb_operation(data, 'b');
+		sb_operation(data, 'd');
 	else if (ft_strncmp(operation, "pb\n", 4) == 0)
-		pb_operation(data, 'b');
+		pb_operation(data, 'd');
 	else if (ft_strncmp(operation, "rb\n", 4) == 0)
-		rb_operation(data, 'b');
+		rb_operation(data, 'd');
 	else if (ft_strncmp(operation, "rrb\n", 5) == 0)
-		reverse_rb_operation(data, 'b');
+		reverse_rb_operation(data, 'd');
 	else if (ft_strncmp(operation, "rr\n", 4) == 0)
-		rr_operation(data, 'c');
+		rr_operation(data, 'd');
 	else if (ft_strncmp(operation, "rrr\n", 5) == 0)
-		reverse_rr_operation(data, 'c');
+		reverse_rr_operation(data, 'd');
 	else
 		free_exit(data, "Error\n");
 }
